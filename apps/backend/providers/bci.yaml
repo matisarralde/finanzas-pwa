@@ -1,0 +1,30 @@
+# apps/backend/src/providers/bci.yaml
+name: "Banco BCI"
+country: "CL"
+
+sender_patterns:
+  - "@bci\\.cl"
+  - "bci.*@.*\\.cl"
+
+subject_patterns:
+  - "compra aprobada"
+  - "notificaci[oó]n.*compra"
+  - "transacci[oó]n"
+  - "cargo"
+
+amount_patterns:
+  - "(?:monto|total)[:\\s]+(?:\\$)?\\s*([\\d\\.]+)"
+  - "\\$\\s*([\\d\\.]+)"
+  - "por[:\\s]+(?:\\$)?\\s*([\\d\\.]+)"
+
+date_patterns:
+  - "(\\d{2}/\\d{2}/\\d{4})"
+  - "(\\d{2}-\\d{2}-\\d{4})"
+
+merchant_patterns:
+  - "en[:\\s]+([A-Z][A-Za-zÁ-ú0-9\\s\\.\\-]{3,40}?)(?:\\n|\\.|,)"
+  - "comercio[:\\s]+([A-Za-zÁ-ú0-9\\s\\.\\-]+)"
+
+card_patterns:
+  - "tarjeta.*?(\\d{4})"
+  - "\\*+(\\d{4})"
