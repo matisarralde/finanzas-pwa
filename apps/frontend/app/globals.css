@@ -1,1 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+  --theme-primary: #3b82f6;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  background: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+}
 
